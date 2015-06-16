@@ -55,7 +55,7 @@ return [
 		'mysql' => [
 			'driver'    => 'mysql',
 			'host'      =>  'localhost',
-			'database'  => ' ',//name a database you whant
+			'database'  => 'stage',//name a database you whant
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
