@@ -1,12 +1,13 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BedrijfFormRequest;
 use App\Bedrijf;
 use App\Tool;
 use App\Bedrijf_Tool;
-use Illuminate\Http\Request;
+use File;
+
 
 class BedrijfController extends Controller {
 
@@ -40,13 +41,19 @@ class BedrijfController extends Controller {
 	 */
 	public function store(BedrijfFormRequest $bedrijf)
 	{
+
+		$logo = $bedrijf->file('image');
+		
+		
+
 		$makebedrijf = Bedrijf::create([
 			'name'=>$bedrijf->get('bedrijfsnaam'),
 			'email'=>$bedrijf->get('email'),
-			'disc'=>$bedrijf->get('bedrijfsinfo')
+			'disc'=>$bedrijf->get('bedrijfsinfo'),
+			'img'=>$logo->getClientOriginalName()
 			]);
 		$idbedrijf = $makebedrijf->id;
-
+		$logo->move( base_path() . '/public/profile/',$logo->getClientOriginalName());
 		$explodetools = explode(" ", $bedrijf->get('tool'));
 
 		for ($i=0; $i < count($explodetools); ) { 
@@ -109,7 +116,14 @@ class BedrijfController extends Controller {
 	 */
 	public function update($id, BedrijfFormRequest $bedrijf)
 	{
+		
 		$bedrijfT = Bedrijf::find($id);
+		if ($bedrijf->file('image') != null) {
+			File::delete(base_path() . '/public/profile/'.$bedrijfT->img);
+			$bedrijfT->img = $bedrijf->file('image')->getClientOriginalName();
+			$bedrijf->file('image')->move(base_path() . '/public/profile/',$bedrijf->file('image')->getClientOriginalName());
+		}
+
 		$tools = Bedrijf_Tool::where('bedrijf_id','=',$id)->get();
 		for ($i=0; $i < count($tools); $i++) { 
 			$tools[$i]->delete();
@@ -144,7 +158,9 @@ class BedrijfController extends Controller {
 	 */
 	public function destroy($id)
 	{
+		
 		$bedrijf = Bedrijf::find($id);
+		File::delete(base_path() . '/public/profile/'.$bedrijf->img);
 		$bedrijf->delete();
 		return redirect('/bedrijven');
 	}

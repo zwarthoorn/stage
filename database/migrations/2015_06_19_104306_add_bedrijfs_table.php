@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddBedrijfToolsTable extends Migration {
+class AddBedrijfsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,9 @@ class AddBedrijfToolsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('bedrijf__tools', function($table)
+		Schema::table('bedrijfs', function($table)
 		{
-    		$table->foreign('id_bedrijf')->reference('id')->on('bedrijfs');
-    		$table->foreign('id_tool')->reference('id')->on('tools');
+    		$table->string('img');
 		});
 	}
 

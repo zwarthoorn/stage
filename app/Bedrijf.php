@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bedrijf extends Model {
 
-	protected $fillable = ['name','email','disc'];
+	protected $fillable = ['name','email','disc','img'];
 
 	public function tools()
 	{

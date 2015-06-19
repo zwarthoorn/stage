@@ -14,7 +14,8 @@ New Bedrijf
 <script>tinymce.init({selector:'textarea'});</script>
 <div class="row">
     <div class="col-md-4 col-md-offset-4">
-        <form method="POST" action="/bedrijven" accept-charset="UTF-8">
+        {!! Form::open(['url'=>'/bedrijven','method'=>'POST', 'files' => true]) !!}
+       
 
             <h2>Create New User</h2>
 
@@ -37,16 +38,19 @@ New Bedrijf
                 <input class="form-control" placeholder="Tools/Technieken" name="tool"  type="text" id='tool'>
                 {{ ($errors->has('tool') ?  $errors->first('tool') : '') }}
             </div>
+            <div class="form-group">
                 <select multiple class="form-control" id='result'>
 
                 </select>
+            </div>
             <div class="form-group">
+                {!! Form::file('image',null) !!}
             </div>
 
             <input name="_token" value="{{ csrf_token() }}" type="hidden">
             <input class="btn btn-primary" value="Create" type="submit">
 
-        </form>
+       {!! Form::close() !!}
     </div>
 </div>
 <script src="/js/main.js"></script>

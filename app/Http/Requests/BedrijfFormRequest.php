@@ -25,7 +25,8 @@ class BedrijfFormRequest extends Request {
 			'bedrijfsnaam'=>'required',
 			'email'=>'required',
 			'bedrijfsinfo'=> 'required',
-			'tool'=>'required'
+			'tool'=>'required',
+			'image' => ''
 
 		];
 	}

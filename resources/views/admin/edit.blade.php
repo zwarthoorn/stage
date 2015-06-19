@@ -15,7 +15,7 @@ Update Bedrijf
 <div class="row">
     <div class="col-md-4 col-md-offset-4">
 
-            {!!Form::open(['url'=>'/bedrijven/'.$bedrijf[0]['id'], 'method'=>'PUT'])!!}
+            {!!Form::open(['url'=>'/bedrijven/'.$bedrijf[0]['id'], 'method'=>'PUT','files' => true])!!}
 
             <h2>Bedrijf</h2>
 
@@ -40,6 +40,8 @@ Update Bedrijf
 
                 </select>
             <div class="form-group">
+               
+                {!! Form::file('image') !!}
             </div>
 
             

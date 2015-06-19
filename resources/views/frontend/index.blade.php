@@ -26,7 +26,7 @@
         <!-- Custom Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
-
+        <link href="css/frontend.css" rel="stylesheet">
         <!-- Template js -->
         <script src="js/jquery-2.1.1.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -302,128 +302,19 @@
                             <p>Duis aute irure dolor in reprehenderit in voluptate</p>
                         </div>
                     </div>
-                    <div class="row">
-                        
+                    <div class="row" id='bedrijven'>
+                        @for($i = 0; $i<count($bedrijven);$i++)
                         <div class="col-md-4">
                             <div class="portfolio-item">
-                                <img src="images/portfolio/roxmedia.png" class="img-responsive" alt="..." style='heigth=480;width=332;'>
+                                <img src="/profile/{{$bedrijven[$i]['img']}}" class="img-responsive" alt="..." style='heigth=332;width=480; '>
                                 <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
+                                    <h4  class='bedrijven'>{{$bedrijven[$i]['name']}}</h4>
                                     <a href="#"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/2.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/3.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/4.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/5.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/6.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/7.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/8.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/9.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/10.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/11.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="portfolio-item">
-                                <img src="images/portfolio/12.png" class="img-responsive" alt="...">
-                                <div class="portfolio-details text-center">
-                                    <h4>Project Name</h4>
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
+                        @endfor
                     </div><!-- /.row -->
                 </div>
                 
